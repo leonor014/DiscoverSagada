@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="data:,">
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+    <script type="module" src="../../js/registration.js"></script>
+</head>
+
+<body>
+    <!-- Header Section 
+    <header>
+        <h1>Welcome to Tourist Registration</h1>
+    </header> -->
+
+
+    <!-- Main Banner with Multiple Images -->
+    <div class="main-banner">
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('/images/b1.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b2.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b3.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b4.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b5.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b6.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b7.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b8.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/b9.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/fedilisan\ rice\ terraces.jpg')"></div>
+            <div class="slide" style="background-image: url('/images/kapay-aw.jpg')"></div>
+            
+        </div>
+        <div class="banner-content">
+            <h1>Discover Sagada</h1>
+            <h2> Discover Yourself</h2>
+        </div>
+    </div>
+
+    
+    
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="/DiscoverSagada/home/index.html">Home</a>
+        <a href="/DiscoverSagada/about/index.html">About</a>
+        <a href="/DiscoverSagada/contact/index.html">Contact</a>
+        <a href="/DiscoverSagada/user/register/index.html">Register</a>
+    </nav>
+
+   
+
+    <!-- Home Section -->
+    <section id="home" class="main-content">
+        <h2>Home</h2>
+
+        <!-- Grouped Buttons Section -->
+        <div class="button-group">
+            <div class="button" onclick="toggleDetails(details1)">
+                <a href="/user/registration-per-site/index.html" class="button">Tourist Site Check-In</a>
+                <!-- <img src="images/per_site_registration.png" alt="Tourist Site Check-in"> -->
+            </div>
+
+            <div class="button" onclick="toggleDetails(details2)">
+                <a href="/user/analytics/index.html" class="button">Analytics</a>
+                <!-- <img src="images/analytics.png" alt="Analytics">  -->
+            </div> 
+
+            <div class="button" onclick="toggleDetails(details3)">
+                <a href="/user/reviews/index.html" class="button">Reviews</a>
+                <!-- <img src="images/reviews.png" alt="Reviews"> -->
+            </div>
+            <div class="button" onclick="toggleDetails(details4)">
+                <a href="/user/tourist-spots/index.html" class="button">Tourist Spots</a>
+                <!-- <img src="images/tourist_spot.png" alt="Tourist Spot"> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section 
+    <section class="about">
+        <h2>About Sagada</h2>
+        <p>Sagada is a picturesque town in the Mountain Province of the Philippines, 
+            known for its stunning natural landscapes, limestone caves, hanging coffins, 
+            and rich indigenous culture. It's a perfect destination for adventure seekers 
+            and those looking to immerse themselves in nature and tradition.</p>
+        <p>Explore the famous Echo Valley, Sumaguing Cave, Bomod-ok Falls, and many more 
+            breathtaking sites that make Sagada a must-visit destination in the Philippines.</p>
+    </section> -->
+    
+
+
+    <!-- Tourist Guidelines -->
+    <link rel="stylesheet" href="/user/tourist-guidelines/style.css">
+    <section class="dropdown" id="tourist-guidelines">
+        <div class="dropdown-header" onclick="toggleDropdown('guidelines-content')">
+            Things to Remember (Tourist Guidelines)
+        </div>
+        <div class="dropdown-content" id="guidelines-content">
+            <div class="container">
+                <div id="guidelines-sections-container">
+                    <!-- Dynamically rendered -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="dropdown" id="faq">
+        <div class="dropdown-header" onclick="toggleDropdown('faq-content')">
+            Frequently Asked Questions (FAQ)
+        </div>
+        <div class="dropdown-content" id="faq-content">
+            <div class="container">
+                <div class="faq-container" id="faq-sections-container">
+                    <!-- Dynamically rendered -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--  Contact Section 
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <div class="contact-item">
+                <h3>Where to find us</h3>
+                <p>3WP3+PJM, <br>South Rd, Sagada, <br>2619 Mountain Province</p>
+            </div>
+            <div class="contact-item">
+                <h3>Email Us At</h3>
+                <p>sagadatourism00@gmail.com</p>
+            </div>
+
+             <div class="contact-item">
+                <h3>Call Us At</h3>
+                <p><br>Phone: 0939-806-7739</p>
+            </div> 
+        -->
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to toggle details visibility
+        function toggleDetails(detailsId) {
+            // Hide all details sections
+            document.querySelectorAll('.details').forEach(details => {
+                details.classList.remove('active');
+            });
+
+            // Show the selected details section
+            const details = document.getElementById(detailsId);
+            details.classList.add('active');
+        }
+
+        // JavaScript to toggle dropdown sections
+        function toggleDropdown(contentId) {
+            const content = document.getElementById(contentId);
+            const header = content.previousElementSibling;
+
+            content.classList.toggle('active');
+            header.classList.toggle('active');
+        }
+        // Slideshow functionality for the banner
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Auto-advance slides every 5 seconds
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });   
+    </script>
+
+    <script type="module" src="/js/dynamic-content.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Discover Sagada. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
