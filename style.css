@@ -15,7 +15,7 @@
 
     /* Full background image settings */
     .bg-sagada {
-      background: url('/images/st-mary-church.jpg') no-repeat center center;
+      background: url('./images/st-mary-church.jpg') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
     }
