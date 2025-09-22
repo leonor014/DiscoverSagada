@@ -4,48 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./style.css">
-   
-   <style>
-    
-   </style>
 </head>
-<body class="bg-sagada min-h-screen flex items-center justify-center text-white px-4 relative">
+<body class="landing-body">
 
   <!-- Dark overlay for better text visibility -->
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="overlay"></div>
 
   <!-- Main Landing Section -->
-  <div id="landing-section" class="text-center max-w-xl relative z-10">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">Discover Sagada</h1>
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">Discover Yourself</h1>
-    <p class="text-sm sm:text-base md:text-lg mb-6">Discover the beauty of Sagada like never before.</p>
-    <button id="exploreBtn" class="bg-white text-blue-600 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:scale-110 hover-glow transition">Explore Now</button>
+  <div id="landing-section" class="landing-section">
+    <h1 class="landing-title">Discover Sagada</h1>
+    <h1 class="landing-title">Discover Yourself</h1>
+    <p class="landing-subtitle">Discover the beauty of Sagada like never before.</p>
+    <button id="exploreBtn" class="btn explore-btn">Explore Now</button>
   </div>
 
   <!-- Terms Modal -->
-  <div id="termsModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
-    <div class="bg-white text-black rounded-2xl p-6 max-w-md w-full shadow-xl fade-in">
-      <h2 class="text-xl sm:text-2xl font-bold mb-4">Terms & Policies</h2>
-      <p class="text-xs sm:text-sm mb-6 leading-relaxed">
+  <div id="termsModal" class="modal hidden">
+    <div class="modal-content">
+      <h2 class="modal-title">Terms & Policies</h2>
+      <p class="modal-text">
         By using this platform, you agree to follow all terms and conditions outlined herein.  
         Please read carefully before proceeding.
       </p>
-      <div class="flex flex-col sm:flex-row justify-end gap-3 sm:space-x-4">
-        <button id="agreeBtn" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">I Agree</button>
-        <button id="closeTerms" class="bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-gray-500 transition">Close</button>
+      <div class="modal-buttons">
+        <button id="agreeBtn" class="btn btn-agree">I Agree</button>
+        <button id="closeTerms" class="btn btn-close">Close</button>
       </div>
     </div>
   </div>
 
   <!-- Choice Modal -->
-  <div id="choiceModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
-    <div class="bg-white text-black rounded-2xl p-6 max-w-md w-full shadow-xl text-center fade-in">
-      <h2 class="text-xl sm:text-2xl font-bold mb-4">What would you like to do?</h2>
-      <div class="flex flex-col sm:flex-row justify-center gap-3 mt-6">
-        <button onclick="window.location.href='./user/register/index.html'" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Register Now</button>
-        <button onclick="window.location.href='./home/index.html'" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Back to Home</button>
+  <div id="choiceModal" class="modal hidden">
+    <div class="modal-content text-center">
+      <h2 class="modal-title">What would you like to do?</h2>
+      <div class="modal-buttons">
+        <button onclick="window.location.href='./user/register/index.html'" class="btn btn-register">Register Now</button>
+        <button onclick="window.location.href='./home/index.html'" class="btn btn-back">Back to Home</button>
       </div>
     </div>
   </div>
@@ -57,17 +52,8 @@
     const agreeBtn = document.getElementById('agreeBtn');
     const closeTerms = document.getElementById('closeTerms');
 
-    // Show Terms Modal
-    exploreBtn.addEventListener('click', () => {
-      termsModal.classList.remove('hidden');
-    });
-
-    // Close Terms Modal
-    closeTerms.addEventListener('click', () => {
-      termsModal.classList.add('hidden');
-    });
-
-    // Agree and Show Choices
+    exploreBtn.addEventListener('click', () => termsModal.classList.remove('hidden'));
+    closeTerms.addEventListener('click', () => termsModal.classList.add('hidden'));
     agreeBtn.addEventListener('click', () => {
       termsModal.classList.add('hidden');
       choiceModal.classList.remove('hidden');
