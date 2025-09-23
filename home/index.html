@@ -12,11 +12,16 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
-    <script src="js/registration.js"></script>
-
+    <script type="module" src="/js/registration.js"></script>
 </head>
 
 <body>
+    <!-- Header Section 
+    <header>
+        <h1>Welcome to Tourist Registration</h1>
+    </header> -->
+
+
     <!-- Main Banner with Multiple Images -->
     <div class="main-banner">
         <div class="slideshow">
@@ -29,7 +34,7 @@
             <div class="slide" style="background-image: url('../images/b7.jpg')"></div>
             <div class="slide" style="background-image: url('../images/b8.jpg')"></div>
             <div class="slide" style="background-image: url('../images/b9.jpg')"></div>
-            <div class="slide" style="background-image: url('../images/pidlisan.jpg')"></div>
+            <div class="slide" style="background-image: url('../images/fedilisan\ rice\ terraces.jpg')"></div>
             <div class="slide" style="background-image: url('../images/kapay-aw.jpg')"></div>
             
         </div>
@@ -59,27 +64,41 @@
         <!-- Grouped Buttons Section -->
         <div class="button-group">
             <div class="button" onclick="toggleDetails(details1)">
-                <a href="/DiscoverSagada/user/registration-per-site/index.html" class="button">Tourist Site Check-In</a>
+                <a href="/user/registration-per-site/index.html" class="button">Tourist Site Check-In</a>
                 <!-- <img src="images/per_site_registration.png" alt="Tourist Site Check-in"> -->
             </div>
 
             <div class="button" onclick="toggleDetails(details2)">
-                <a href="/DiscoverSagada/user/analytics/index.html" class="button">Analytics</a>
+                <a href="/user/analytics/index.html" class="button">Analytics</a>
                 <!-- <img src="images/analytics.png" alt="Analytics">  -->
             </div> 
 
             <div class="button" onclick="toggleDetails(details3)">
-                <a href="/DiscoverSagada/user/reviews/index.html" class="button">Reviews</a>
+                <a href="/user/reviews/index.html" class="button">Reviews</a>
                 <!-- <img src="images/reviews.png" alt="Reviews"> -->
             </div>
             <div class="button" onclick="toggleDetails(details4)">
-                <a href="/DiscoverSagada/user/tourist-spots/index.html" class="button">Tourist Spots</a>
+                <a href="/user/tourist-spots/index.html" class="button">Tourist Spots</a>
                 <!-- <img src="images/tourist_spot.png" alt="Tourist Spot"> -->
             </div>
         </div>
     </section>
 
+    <!-- About Section 
+    <section class="about">
+        <h2>About Sagada</h2>
+        <p>Sagada is a picturesque town in the Mountain Province of the Philippines, 
+            known for its stunning natural landscapes, limestone caves, hanging coffins, 
+            and rich indigenous culture. It's a perfect destination for adventure seekers 
+            and those looking to immerse themselves in nature and tradition.</p>
+        <p>Explore the famous Echo Valley, Sumaguing Cave, Bomod-ok Falls, and many more 
+            breathtaking sites that make Sagada a must-visit destination in the Philippines.</p>
+    </section> -->
+    
+
+
     <!-- Tourist Guidelines -->
+    <link rel="stylesheet" href="/user/tourist-guidelines/style.css">
     <section class="dropdown" id="tourist-guidelines">
         <div class="dropdown-header" onclick="toggleDropdown('guidelines-content')">
             Things to Remember (Tourist Guidelines)
@@ -169,7 +188,7 @@
         });   
     </script>
 
-    <script src="js/dynamic-content.js" ></script>
+    <script type="module" src="/js/dynamic-content.js"></script>
 
     <!-- Footer -->
     <footer>
