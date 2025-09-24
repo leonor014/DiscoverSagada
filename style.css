@@ -29,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: rgb(34, 32, 32);
   position: relative;
   font-family: Arial, sans-serif;
   text-align: center;
@@ -38,12 +38,104 @@ body {
 
 
 .landing-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 50px 20px;
   color: white;
   position: relative;
   z-index: 1;
+  height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
+
+
+/* Responsive text sizing */
+.landing-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #FFD700; /* Golden Yellow */
+  text-shadow: 2px 2px 4px black; /* Black outline */
+  transition: transform 0.5s ease, text-shadow 0.5s ease, color 0.5s ease;
+  cursor: pointer;
+  animation: goldenGlow 3s infinite alternate;
+}
+
+/* Glow Animation Keyframes */
+@keyframes goldenGlow {
+  0% {
+    text-shadow: 2px 2px 4px black, 0 0 10px #FFD700, 0 0 20px #FFD700;
+  }
+  50% {
+    text-shadow: 2px 2px 4px black, 0 0 20px #FFEC80, 0 0 40px #FFD700;
+  }
+  100% {
+    text-shadow: 2px 2px 4px black, 0 0 10px #FFD700, 0 0 30px #FFA500;
+  }
+}
+
+/* Hover effect for header */
+.landing-section h1:hover {
+  transform: scale(1.1);
+  text-shadow: 4px 4px 10px black;
+  color: #ffec80; /* Lighter golden yellow on hover */
+}
+
+.landing-section p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  animation: fadeIn 2s ease forwards; /* fade in */
+  animation-delay: 0.5s; /* starts after header shows */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.landing-section p:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.landing-section button {
+  padding: 20px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: buttonBounce 1.5s ease-out forwards;
+  animation-delay: 1.2s; /* after heading & paragraph */
+  opacity: 0;
+}
+
+@keyframes buttonBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.landing-section button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
 
 .landing-title {
   font-size: 2rem;
@@ -89,71 +181,88 @@ body {
 
 /* Modal Content */
 .modal-content {
-      background: #fff;
-      max-width: 600px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: left;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
+  background: #fff;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 
-    .modal-title {
-      margin-bottom: 15px;
-      font-size: 1.5rem;
-      text-align: center;
-    }
+.modal-title {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+}
 
-    /* List Styling */
-    .modal-text {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
+/* List Styling */
+.modal-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-    .modal-text ol {
-      padding-left: 20px;
-      margin-bottom: 15px;
-    }
+.modal-text ol {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
 
-    .modal-text li {
-      margin-bottom: 10px;
-    }
+.modal-text li {
+  margin-bottom: 10px;
+}
 
-    /* Modal Buttons */
-    .modal-buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
+/* Modal Buttons */
+.modal-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
 
-    .modal-buttons .btn {
-      margin: 5px;
-    }
+.modal-buttons .btn {
+  margin: 5px;
+}
 
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .landing-title {
-        font-size: 1.5rem;
-      }
-      .landing-subtitle {
-        font-size: 1rem;
-      }
-      .modal-content {
-        max-width: 95%;
-        max-height: 80vh;
-        padding: 15px;
-      }
-      .modal-title {
-        font-size: 1.2rem;
-      }
-    }
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 1.5rem;
+  }
 
-    @media (max-width: 480px) {
-      .modal-content {
-        max-height: 75vh;
-      }
-      .landing-title {
-        font-size: 1.2rem;
-      }
-    }
+  .landing-subtitle {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 80vh;
+    padding: 15px;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .landing-section h1 {
+    font-size: 2rem;
+  }
+
+  .landing-section p {
+    font-size: 1rem;
+  }
+
+  .landing-section button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    max-height: 75vh;
+  }
+  
+  .landing-title {
+    font-size: 1.2rem;
+  }
+}
