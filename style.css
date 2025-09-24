@@ -1,4 +1,27 @@
-/* Body and Background */
+/* General Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./images/st-mary-church.jpg') center/cover no-repeat;
+  
+  z-index: -1;
+}
 .landing-body {
   margin: 0;
   padding: 0;
@@ -6,157 +29,131 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('./images/st-mary-church.jpg') center/cover no-repeat;
   color: white;
   position: relative;
   font-family: Arial, sans-serif;
   text-align: center;
+  overflow-x: hidden;
 }
 
-/* Dark overlay */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
 
-/* Landing section */
 .landing-section {
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
   position: relative;
   z-index: 1;
-  max-width: 600px;
-  padding: 20px;
 }
 
 .landing-title {
   font-size: 2rem;
-  font-weight: bold;
-  margin: 10px 0;
 }
 
 .landing-subtitle {
-  font-size: 1rem;
-  margin-bottom: 20px;
+  margin: 10px 0;
+  font-size: 1.2rem;
 }
 
-/* Buttons */
 .btn {
   padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
+  margin: 10px;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+  border: none;
+  border-radius: 5px;
+  background: #4caf50;
+  color: white;
+  font-size: 1rem;
 }
 
-.explore-btn {
-  background: white;
-  color: #2563eb;
-}
-
-.explore-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Modal */
+/* Modal Base */
 .modal {
-  position: fixed;
-  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-}
-
-.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.modal-text {
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-}
-
-/* Modal buttons */
-.modal-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.modal-buttons .btn {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
-.btn-agree {
-  background: #22c55e;
-  color: white;
+.modal.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
-.btn-agree:hover {
-  background: #16a34a;
-}
+/* Modal Content */
+.modal-content {
+      background: #fff;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
 
-.btn-close {
-  background: #9ca3af;
-  color: white;
-}
+    .modal-title {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
 
-.btn-close:hover {
-  background: #6b7280;
-}
+    /* List Styling */
+    .modal-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
 
-.btn-register {
-  background: #3b82f6;
-  color: white;
-}
+    .modal-text ol {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
 
-.btn-register:hover {
-  background: #2563eb;
-}
+    .modal-text li {
+      margin-bottom: 10px;
+    }
 
-.btn-back {
-  background: #6b7280;
-  color: white;
-}
+    /* Modal Buttons */
+    .modal-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-.btn-back:hover {
-  background: #4b5563;
-}
+    .modal-buttons .btn {
+      margin: 5px;
+    }
 
-/* Responsive */
-@media (min-width: 640px) {
-  .landing-title {
-    font-size: 2.5rem;
-  }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .landing-title {
+        font-size: 1.5rem;
+      }
+      .landing-subtitle {
+        font-size: 1rem;
+      }
+      .modal-content {
+        max-width: 95%;
+        max-height: 80vh;
+        padding: 15px;
+      }
+      .modal-title {
+        font-size: 1.2rem;
+      }
+    }
 
-  .landing-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .modal-buttons {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .modal-buttons .btn {
-    width: auto;
-  }
-}
+    @media (max-width: 480px) {
+      .modal-content {
+        max-height: 75vh;
+      }
+      .landing-title {
+        font-size: 1.2rem;
+      }
+    }
